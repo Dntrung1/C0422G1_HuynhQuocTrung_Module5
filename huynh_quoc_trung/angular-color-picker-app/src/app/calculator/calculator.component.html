@@ -1,0 +1,24 @@
+<div class="input-group input-group-lg">
+  <span class="input-group-text" id="inputGroup-sizing-lg">Số thứ nhất</span>
+  <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
+         [(ngModel)]="caculator.num1">
+</div>
+<div>
+  <select class="form-select" aria-label="Default select example" [(ngModel)]="caculator.sign">
+    <option value="0">Open this select menu</option>
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+  </select>
+</div>
+<div class="input-group input-group-lg">
+  <span class="input-group-text" id="inputGroup-sizing-lg1">Số thứ hai</span>
+  <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg"
+         [(ngModel)]="caculator.num2" >
+</div>
+<div >
+  <h1 >kết quả:
+    {{getTotal(caculator.num1,caculator.num2,caculator.sign)}}
+  </h1>
+</div>
