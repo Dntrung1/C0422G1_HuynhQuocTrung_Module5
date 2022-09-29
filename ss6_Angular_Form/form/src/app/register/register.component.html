@@ -1,0 +1,62 @@
+<div class="container">
+  <form [formGroup]="registerForm" (ngSubmit)="create()">
+    <div>
+      <h1>Đăng ký</h1>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email</label>
+      <input formControlName="email" name="email" type="email" class="form-control" id="exampleInputEmail1"
+             aria-describedby="emailHelp">
+      <p style="color: red" *ngIf="registerForm.controls.email.hasError('email') && submitter">Không đúng định dạng</p>
+      <p style="color: red" *ngIf="registerForm.controls.email.hasError('required') && submitter">Không để trống</p>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Mật Khẩu</label>
+      <input formControlName="password" name="password" type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword2" class="form-label">Xác nhận mật khẩu</label>
+      <input formControlName="passwordConfirm" name="passwordConfirm" type="text" class="form-control"
+             id="exampleInputPassword2">
+      <p style="color: red" *ngIf="registerForm.hasError('notSame') && submitter">sai</p>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputAge" class="form-label">Tuổi</label>
+      <input formControlName="age" name="age" type="number" class="form-control" id="exampleInputAge">
+      <p style="color: red" *ngIf="registerForm.controls.age.hasError('required') && submitter">Không để trống</p>
+      <p style="color: red" *ngIf="registerForm.controls.age.hasError('invalidAge') && submitter">Tuổi khổng được nhỏ hơn 18</p>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPhone" class="form-label">Số điện thoại</label>
+      <input formControlName="phone" name="phone" type="text" class="form-control" id="exampleInputPhone">
+      <p style="color: red" *ngIf="registerForm.controls.phone.hasError('required') && submitter">Không để trống</p>
+      <p style="color: red" *ngIf="registerForm.controls.phone.hasError('pattern') && submitter">Không đúng định dạng</p>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Giới tính</label>
+      <div class="form-check">
+        <input formControlName="gender" name="gender" class="form-check-input"
+               value="true" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+        <label class="form-check-label" for="flexRadioDefault1">
+          Nam
+        </label>
+      </div>
+      <div class="form-check">
+        <input formControlName="gender" name="gender" class="form-check-input"
+               value="false" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+        <label class="form-check-label" for="flexRadioDefault2">
+          Nữ
+        </label>
+      </div>
+    </div>
+    <div class="mb-3">
+      <select formControlName="country" name="country" class="form-select" aria-label="Default select example">
+        <option selected>Quốc Gia</option>
+        <option value="Việt Nam">Việt Nam</option>
+        <option value="Trung Quốc">Trung Quốc</option>
+        <option value="Nhật Bản">Nhật Bản</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Đăng ký</button>
+  </form>
+</div>
