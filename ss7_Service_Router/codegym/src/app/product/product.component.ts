@@ -11,6 +11,7 @@ import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 export class ProductComponent implements OnInit {
   products: Product[] = [];
   idD: number;
+  nameD: string;
   constructor(private productService: ProductService,private activatedRoute: ActivatedRoute,private router: Router) {
     this.products = this.productService.findAll();
     activatedRoute.paramMap.subscribe((paramMap:ParamMap) => {
@@ -23,9 +24,10 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  submitFomrDelete(idDelete: number) {
+  submitFomrDelete(idDelete: number, name: string) {
     console.log(idDelete)
     this.idD = idDelete;
+    this.nameD = name;
     console.log(this.idD)
   }
 }

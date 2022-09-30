@@ -19,7 +19,7 @@
       <button class="btn btn-danger" [routerLink]="['update',product.id]">Chỉnh sửa</button>
     </td>
     <td>
-      <button (click)="submitFomrDelete(product.id)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button (click)="submitFomrDelete(product.id, product.name)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Xóa
       </button>
     </td>
@@ -30,12 +30,12 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <input type="hidden">
-        Bạn có chắc chắn xóa không
+        Bạn có Muốn xóa <span style="color: red">{{nameD}}</span> không
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
