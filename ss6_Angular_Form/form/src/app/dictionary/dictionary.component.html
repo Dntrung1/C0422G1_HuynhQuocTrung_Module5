@@ -1,0 +1,9 @@
+<table >
+  <tr *ngFor="let eng of dictionarys">
+    <td>{{eng.word}}</td>
+    <td>
+      <button [routerLink]="['',eng.word]" class="btn btn-danger">Dịch</button>
+    </td>
+  </tr>
+</table>
+
