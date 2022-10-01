@@ -1,17 +1,21 @@
 <div class="container-fluid">
   <h1>Thêm mới sản phẩm</h1>
-<form [formGroup]="productCreate" (ngSubmit)="createProduct()">
-  <div class="mb-3">
-    <label for="exampleInputName" class="form-label">Tên sản phẩm</label>
-    <input formControlName="name" name="name" type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp">
-  </div><div class="mb-3">
-  <label for="exampleInputPrice" class="form-label">Giá</label>
-  <input formControlName="price" name="price" type="text" class="form-control" id="exampleInputPrice" aria-describedby="emailHelp">
-</div>
-  <div class="mb-3">
-    <label for="exampleInputDescription" class="form-label">Mô tả</label>
-    <input formControlName="description" name="description" type="text" class="form-control" id="exampleInputDescription">
-  </div>
-  <button type="submit" class="btn btn-primary">Lưu</button>
-</form>
+  <form [formGroup]="productCreate" (ngSubmit)="createProduct()">
+    <div class="mb-3">
+      <label for="exampleInputName" class="form-label">Tên sản phẩm</label>
+      <input formControlName="name" name="name" type="text" class="form-control" id="exampleInputName"
+             aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPrice" class="form-label">Giá</label>
+      <input formControlName="price" name="price" type="text" class="form-control" id="exampleInputPrice"
+             aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputDescription" class="form-label">Mô tả</label>
+      <input formControlName="description" name="description" type="text" class="form-control"
+             id="exampleInputDescription">
+    </div>
+    <button type="submit" class="btn btn-primary">Lưu</button>
+  </form>
 </div>

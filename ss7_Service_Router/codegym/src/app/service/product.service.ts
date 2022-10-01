@@ -1,11 +1,13 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Product} from "../model/product";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  product: Product ;
+  product: Product;
   products: Product[] = [{
     id: 1,
     name: 'IPhone 12',
@@ -32,47 +34,28 @@ export class ProductService {
     price: 1895000,
     description: 'Like new'
   }];
-  constructor() {
+
+  constructor(private httpClient: HttpClient) {
 
   }
 
-  findAll() {
-    return this.products;
+  findAll(): Observable<any> {
+    return this.httpClient.get("http://localhost:3000/product");
   }
 
   create(value: any) {
-    this.product = null;
-    this.product = value;
-    for (let i = 0; i < this.products.length; i++) {
-      this.product.id = this.products[this.products.length-1].id + 1;
-    }
-    console.log(this.product)
-    this.products.push(this.product)
+    return this.httpClient.post("http://localhost:3000/product", value);
   }
 
-  findById(number: number) {
-    return this.products.filter(prd => prd.id === number)[0];
+  findById(number: number): Observable<any> {
+    return this.httpClient.get("http://localhost:3000/product/" + number)
   }
 
   update(value: any) {
-    this.product = null;
-    this.product = value;
-    for (let i = 0; i < this.products.length; i++) {
-        if (this.product.id === this.products[i].id){
-          this.products[i].name = this.product.name
-          this.products[i].price = this.product.price
-          this.products[i].description = this.product.description
-        }
-    }
+    return this.httpClient.patch("http://localhost:3000/product/" + value.id, value);
   }
 
   deleteById(number: number) {
-    this.product = null;
-    this.product = this.products.filter(prd => prd.id === number)[0];
-    for (let i = 0; i < this.products.length; i++) {
-      if (this.product.id === this.products[i].id){
-        this.products.splice(i,1)
-      }
-    }
+    return this.httpClient.delete("http://localhost:3000/product/" + number);
   }
 }

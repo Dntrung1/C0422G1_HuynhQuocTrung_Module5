@@ -9,6 +9,7 @@ import {RegisterComponent} from './register/register.component';
 import { LoginComponentComponent } from './login-component/login-component.component';
 import { DictionaryComponent } from './dictionary/dictionary.component';
 import { DictionaryDetailComponent } from './dictionary-detail/dictionary-detail.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DictionaryDetailComponent } from './dictionary-detail/dictionary-detail
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -19,7 +19,8 @@
       <button class="btn btn-danger" [routerLink]="['update',product.id]">Chỉnh sửa</button>
     </td>
     <td>
-      <button (click)="submitFomrDelete(product.id, product.name)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button (click)="submitFomrDelete(product.id, product.name)" type="button" class="btn btn-primary"
+              data-bs-toggle="modal" data-bs-target="#exampleModal">
         Xóa
       </button>
     </td>
@@ -39,11 +40,9 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
-        <button [routerLink]="['delete',idD]" type="button" class="btn btn-primary" data-bs-dismiss="modal" >Có</button>
+        <button [routerLink]="['delete',idD]" type="button" class="btn btn-primary" data-bs-dismiss="modal">Có</button>
       </div>
     </div>
   </div>
 </div>
-<script>
 
-</script>

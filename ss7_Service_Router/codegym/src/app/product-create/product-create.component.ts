@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {ProductService} from "../service/product.service";
 import {Router} from "@angular/router";
@@ -10,11 +10,12 @@ import {Router} from "@angular/router";
 })
 export class ProductCreateComponent implements OnInit {
   productCreate: FormGroup;
+
   constructor(private productService: ProductService, private router: Router) {
     this.productCreate = new FormGroup({
-        id: new FormControl(),
-        name: new FormControl(),
-        price: new FormControl(),
+      id: new FormControl(),
+      name: new FormControl(),
+      price: new FormControl(),
       description: new FormControl(),
     })
   }
@@ -23,7 +24,9 @@ export class ProductCreateComponent implements OnInit {
   }
 
   createProduct() {
-    this.productService.create(this.productCreate.value)
-    this.router.navigateByUrl("");
+    this.productService.create(this.productCreate.value).subscribe(next => {
+      this.router.navigateByUrl("");
+    })
+
   }
 }
